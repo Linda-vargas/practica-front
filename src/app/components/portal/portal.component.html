@@ -1,0 +1,77 @@
+<!-- 
+  <div class="container-fluid">
+      <div class="row align-items-start">
+          <div class="col-md-12 align-self-center">
+              <label for="">hola</label>
+            <button type="button" class="btn btn-primary">Primary</button>
+
+          </div>
+      </div>
+  </div> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 align-self-center">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <h2 class="text-center">Bienvenidos</h2>
+            </div>
+          </nav>
+      </div>
+    </div>
+        <div class="card border-primary mb-3 align-self-center" style="max-width: 100%;">
+          <div class="card-header">Ingrese su código de alumno</div>
+          <div class="card-body text-primary">
+            <div class="row">
+              <div class="col-md-8">
+                  <input type="text" class="form-control"  [(ngModel)]="codigo" placeholder="Ingresar codigo de alumno" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              </div>
+              <div class="col-md-4">
+                  <button type="button" class="btn btn-primary" (click)="obtenerDatos()">Buscar</button>
+              </div>
+            </div>
+            <h1 *ngIf="enabled">Datos del Alumno</h1>
+            <div class="row" *ngIf="enabled">
+              <div class="col-md-8">
+                <ul class="list-group">
+                  <li class="list-group-item">Código: {{data.alumno.codalu}}</li>
+                  <li class="list-group-item">Nombre: {{data.alumno.nomalu}}</li>
+                  <li class="list-group-item">Apellido: {{data.alumno.apealu}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row" *ngIf="enabled">
+                <div class="col-md-8">
+              <table class="table table-dark table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Codigo</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Credito</th>
+                      <th scope="col">Nota</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let dat of data.curso">
+                      <th scope="row">{{dat.codcur}}</th>
+                      <td>{{dat.nomcur}}</td>
+                      <td>{{dat.credito}}</td>
+                      <td>{{dat.nota}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row" *ngIf="enabled">
+              <div class="col-md-8">
+                <div class="alert alert-primary" role="alert">
+                Promedio: {{promedio}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    
+    
+  </div>
