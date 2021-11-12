@@ -1,13 +1,4 @@
-<!-- 
-  <div class="container-fluid">
-      <div class="row align-items-start">
-          <div class="col-md-12 align-self-center">
-              <label for="">hola</label>
-            <button type="button" class="btn btn-primary">Primary</button>
 
-          </div>
-      </div>
-  </div> -->
 
   <div class="container">
     <div class="row">
@@ -20,8 +11,23 @@
       </div>
     </div>
         <div class="card border-primary mb-3 align-self-center" style="max-width: 100%;">
+         
           <div class="card-header">Ingrese su código de alumno</div>
           <div class="card-body text-primary">
+            <div class="row" *ngIf="isError">
+              <div class="col-md-8">
+                <div class="alert alert-danger" role="alert">
+                {{mensaje}}
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="isLoad">
+              <div class="col-md-8">
+                <div class="alert alert-success" role="alert">
+                Cargando
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-8">
                   <input type="text" class="form-control"  [(ngModel)]="codigo" placeholder="Ingresar codigo de alumno" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -62,7 +68,7 @@
                 </table>
               </div>
             </div>
-            <div class="row" *ngIf="enabled">
+            <div class="row" *ngIf="enabled ">
               <div class="col-md-8">
                 <div class="alert alert-primary" role="alert">
                 Promedio: {{promedio}}
